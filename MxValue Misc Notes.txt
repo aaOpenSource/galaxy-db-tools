@@ -1,0 +1,43 @@
+Notes for [dbo].[dynamic_attribute]
+[data_type]
+-1	Unknown
+0	None 	(aka NoData)	(Typical in DDESL/OpcClient attribute mappings)
+1	Boolean
+2	Integer
+3	Float
+4	Double
+5	String
+6	Time
+7	ElapsedTime
+8	ReferenceType
+9	StatusType
+10	DataTypeEnum
+11	SecurityClassificationEnum
+12	DataQualityType
+13	CustomEnum	(aka QualifiedEnum)
+14	CustomStruct	(aka QualifiedStruct)
+15	InternationalizedString
+16	BigString
+17	DataTypeEND
+
+
+To get the list of UDAs:
+
+USE [GalaxyName]
+
+SELECT DISTINCT
+	go.[tag_name]
+	,da.[gobject_id]
+	,[attribute_name]
+	,[mx_data_type]
+	,[is_array]
+	,[mx_value]
+	,[dynamic_attribute_type]
+FROM
+	[dbo].[dynamic_attribute] da
+	INNER JOIN [dbo].[gobject] go
+		ON da.[gobject_id] = go.[gobject_id]
+WHERE
+	go.[tag_name] = '$SomeObject'
+--	AND da.[attribute_name] like '%SomeUdaName%'
+
