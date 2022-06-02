@@ -5,7 +5,7 @@ SQL-based scripts to decode data in the Galaxy Repository database.
 
 ## Contributors
 
-* [David Goodman](mailto:dgoodman@avidsolutionsinc.com), [Avid Solutions, Inc.](http://avidsolutionsinc.com).
+* David Goodman
 
 ## License
 
